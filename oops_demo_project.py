@@ -1,9 +1,37 @@
 class chatbook :
+    
+    # static value hai
+    __user_id = 0 # encapsulated 
+    
     def __init__(self):
+        
+        self.id = chatbook.__user_id # static value ko self access nhi karta, direct class access karti hai
+        chatbook.__user_id += 1 # jitne baar object banega, ye har baar 1 se bhadhega
+        
+        ## double dash aage laga do, kisi attribute ke naam ke toh voh hidden attribute ban jaata hai (encapsulation)
+        self.__name = "Default User" # just for learning purpose created this attribute 
         self.username = ""
         self.password = ""
         self.loggedin = False
-        self.menu() # method ko constructor ke aandar hi call kar skte hai
+        # self.menu() # method ko constructor ke aandar hi call kar skte hai
+        
+    # STATIC METHOD creation : "@staticmethod"
+    # static method ko self pass nhi karte
+    @staticmethod
+    def get_id(): # getter method
+        return chatbook.__user_id
+    
+    @staticmethod
+    def set_id(value) : # setter method
+        chatbook.__user_id = value
+        
+    # GETTER method
+    def get_name(self):
+        return self.__name # class ke aandar direct access kar skte hai, class ke bahar "_classname" attach karna padta hai jab access karna chaho
+        
+    # SETTER method
+    def set_name(self, value):
+        self.__name = value
         
     def menu(self):
         user_input = input("""Welcome to CHATBOOK !! How would you like to proceed?
@@ -72,4 +100,4 @@ class chatbook :
         print("\n")
         self.menu()
         
-obj = chatbook()
+# obj = chatbook()
