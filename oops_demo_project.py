@@ -67,7 +67,7 @@ class chatbook :
             frnd = input("whom to send the msg ?")
             print(f"your message has been sent to {frnd}")
         else :
-            print("you need to signin first to post something...")
+            print("you need to signin first to message something...")
             
         print("\n")
         self.menu()
