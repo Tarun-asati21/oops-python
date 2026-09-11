@@ -21,7 +21,7 @@ class chatbook :
         elif user_input == "2" :
             self.signin()
         elif user_input == "3" :
-            pass
+            self.my_post()
         elif user_input == "4" :
             pass
         else :
@@ -52,5 +52,16 @@ class chatbook :
         print("\n")
         self.menu()
         
+    def my_post(self) :
+        # just checking that the given user has signin done, then only is getting access to write the post otherwise not
+        if self.loggedin == True :
+            txt = input("Enter your message here -> ")
+            print(f"following content has been posted to your CHATBOOK account -> {txt}")
+        else :
+            print("you need to signin first to post something...")
+            
+        print("\n")
+        self.menu()
+            
         
 obj = chatbook()
